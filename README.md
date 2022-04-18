@@ -1,6 +1,6 @@
 # task-tesodev
 
-##ÇALIŞTIRMAK İÇİN GEREKENLER
+## ÇALIŞTIRMAK İÇİN GEREKENLER
 
 ## Project setup
 ```
