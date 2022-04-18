@@ -33,7 +33,7 @@
     <div
       class="d-flex justify-content-center m-1 flex-direction-column width-100 align-items-center"
     >
-      <div v-for="(data, index) in sssearch" :key="index">
+      <div v-for="(data, index) in searchingData" :key="index">
         <mainMore :searchDatas="data" />
         <hr />
       </div>
@@ -135,14 +135,14 @@ const dropdown = ref(false);
 const addDataScreen = inject("addDataScreen");
 const searchKey = inject("searchKey");
 const searchDatas = ref([]);
-const sssearch = ref([]);
+const searchingData = ref([]);
 watch(searchKey, () => {
   if (searchKey.value.length >= 2) {
     searchDatas.value = [];
     searchDataa();
     store.dispatch("setSearchData", searchDatas.value);
     buttonCount();
-    sssearch.value = searchData.value;
+    searchingData.value = searchData.value;
     activePage.value = 1;
     searchSixerFilter();
   } else searchDatas.value = [];
@@ -167,7 +167,7 @@ const searchSixerFilter = () => {
   if (searchData.value.length > 5) {
     let firstIndex = 5 * (activePage.value - 1);
     let lastIndex = 5 * activePage.value;
-    sssearch.value = searchData.value.slice(firstIndex, lastIndex);
+    searchingData.value = searchData.value.slice(firstIndex, lastIndex);
   }
 };
 const buttonCount = () => {
@@ -190,7 +190,7 @@ const nextPage = () => {
   searchSixerFilter();
 };
 const nameAscending = () => {
-  sssearch.value = searchData.value.sort();
+  searchingData.value = searchData.value.sort();
   searchSixerFilter();
   let elementNameAscend = ref(document.getElementById("nameAscend"));
   let elementNameDescend = ref(document.getElementById("nameDescend"));
@@ -202,7 +202,7 @@ const nameAscending = () => {
   elemenetYearDescend.value.classList.remove("dropdown-content-a-active");
 };
 const nameDescending = () => {
-  sssearch.value = searchData.value.sort(function (a, b) {
+  searchingData.value = searchData.value.sort(function (a, b) {
     if (a > b) {
       return -1;
     }
@@ -227,7 +227,7 @@ const dateFormat = (i) => {
   return dat;
 };
 const yearAscending = () => {
-  sssearch.value = searchData.value.sort(
+  searchingData.value = searchData.value.sort(
     (a, b) =>
       new Date(dateFormat(b)).getTime() - new Date(dateFormat(a)).getTime()
   );
@@ -242,7 +242,7 @@ const yearAscending = () => {
   elemenetYearDescend.value.classList.remove("dropdown-content-a-active");
 };
 const yearDescending = () => {
-  sssearch.value = searchData.value.sort(
+  searchingData.value = searchData.value.sort(
     (a, b) =>
       new Date(dateFormat(a)).getTime() - new Date(dateFormat(b)).getTime()
   );
