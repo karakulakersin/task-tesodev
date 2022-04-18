@@ -1,8 +1,10 @@
 # task-tesodev
 
+##ÇALIŞTIRMAK İÇİN GEREKENLER
+
 ## Project setup
 ```
-npm install
+npm install and second terminal npx json-server --watch mockData.json
 ```
 
 ### Compiles and hot-reloads for development
