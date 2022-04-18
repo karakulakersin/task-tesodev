@@ -4,7 +4,8 @@
 
 ## Project setup
 ```
-npm install and second terminal npx json-server --watch mockData.json
+npm install 
+Second terminal ----  npx json-server --watch mockData.json
 ```
 
 ### Compiles and hot-reloads for development
