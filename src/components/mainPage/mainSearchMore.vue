@@ -139,7 +139,7 @@ const searchingData = ref([]);
 watch(searchKey, () => {
   if (searchKey.value.length >= 2) {
     searchDatas.value = [];
-    searchDataa();
+    onSearchData();
     store.dispatch("setSearchData", searchDatas.value);
     buttonCount();
     searchingData.value = searchData.value;
@@ -154,7 +154,7 @@ const allData = computed(() => {
   return store.getters["getAllData"];
 });
 
-const searchDataa = () => {
+const onSearchData = () => {
   allData.value.forEach(function (data) {
     const ressult = data[0]
       .toLowerCase()
@@ -258,7 +258,7 @@ const yearDescending = () => {
 };
 
 onMounted(() => {
-  searchDataa();
+  onSearchData();
   activePage.value = 1;
   searchSixerFilter();
   buttonCount();
