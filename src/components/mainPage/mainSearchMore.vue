@@ -4,11 +4,10 @@
       class="d-flex justify-content-space-between align-items-center m-2 p-l-1"
     >
       <div>
-        <img
+        <imghttps://github.com/karakulakersin/task-tesodev/blob/main/src/components/mainPage/mainSearchMore.vue
           src="https://www.tesodev.com/getimg/5d4c76e7de632812d86a5bf2/194"
         />
       </div>
-      <div class="d-flex align-items-center ">
 
       <div class="d-flex align-items-center">
         <div style="margin-left: 6 rem">
@@ -122,7 +121,6 @@
           Next
         </button>
       </div>
-       </div>
     </div>
   </div>
 </template>
