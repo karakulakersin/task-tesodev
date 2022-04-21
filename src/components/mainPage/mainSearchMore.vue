@@ -8,11 +8,9 @@
           src="https://www.tesodev.com/getimg/5d4c76e7de632812d86a5bf2/194"
         />
       </div>
-<<<<<<< HEAD
       <div class="d-flex align-items-center ">
-=======
+
       <div class="d-flex align-items-center">
->>>>>>> 80466ebdc70808d6ce86c120a95ffb4c02ad69a9
         <div style="margin-left: 6 rem">
           <input v-model="searchKey" placeholder="Search username" />
         </div>
@@ -124,6 +122,7 @@
           Next
         </button>
       </div>
+       </div>
     </div>
   </div>
 </template>
