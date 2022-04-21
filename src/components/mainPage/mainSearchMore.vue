@@ -8,7 +8,7 @@
           src="https://www.tesodev.com/getimg/5d4c76e7de632812d86a5bf2/194"
         />
       </div>
-      <div class="d-flex align-items-center col-7">
+      <div class="d-flex align-items-center">
         <div style="margin-left: 6 rem">
           <input v-model="searchKey" placeholder="Search username" />
         </div>
