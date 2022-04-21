@@ -8,20 +8,13 @@ npm install
 Second terminal ----  npx json-server --watch mockData.json
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Test durumları
 
-### Compiles and minifies for production
 ```
-npm run build
-```
+1.Girilen yeni data içeride eskisi var mı şeklinde kontrol yapılıyor mu? 
+Aynı datadan iki kez eklenebilir mi? 
 
-### Lints and fixes files
-```
-npm run lint
-```
+2.Şehrin ve ülkenin en az 2 harf olması bekleniyor, 
+2 harfli şehir ve ülke var mı? 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
