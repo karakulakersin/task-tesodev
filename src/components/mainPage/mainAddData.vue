@@ -11,8 +11,7 @@
       <div class="m-1">
         <p class="addPageInputColor mb-0-5 mb-0-3">Name Surname</p>
         <input
-       
-          id="name"
+          ref="nameInput"
           v-model="userArray[0]"
           minLenght="4"
           maxlength="60"
@@ -20,42 +19,42 @@
           onkeypress="return /[a-z]/i.test(event.key)"
           placeholder="Enter name and surname"
         />
-        <p id="nameAlert" class="display-none" style="color:red" > Ad 4 haneden küçük olamaz.  </p>
+        <p ref="nameAlert" class="display-none" style="color:red" > Ad 4 haneden küçük olamaz.  </p>
       </div>
       <div class="m-1">
         <p class="addPageInputColor mb-0-5 mb-0-3">Country</p>
         <input
           required
-          id="country"
+          ref="countryInput"
           v-model="userArray[4]"
           maxlength="40"
           onkeypress="return /[a-z]/i.test(event.key)"
           placeholder="Enter a country"
         />
-        <p id="countryAlert"  class="display-none" style="color:red" > Ülke 2 haneden küçük olamaz.  </p>
+        <p ref="countryAlert"  class="display-none" style="color:red" > Ülke 2 haneden küçük olamaz.  </p>
       </div>
       <div class="m-1">
         <p class="addPageInputColor mb-0-5 mb-0-3">City</p>
         <input
-          id="city"
+          ref="cityInput"
           required
           maxlength="40"
           v-model="userArray[5]"
           onkeypress="return /[a-z]/i.test(event.key)"
           placeholder="Enter a city"
         />
-        <p id="cityAlert" class="display-none" style="color:red" > Şehir 2 haneden küçük olamaz.  </p>
+        <p ref="cityAlert" class="display-none" style="color:red" > Şehir 2 haneden küçük olamaz.  </p>
       </div>
       <div class="m-1">
         <p class="addPageInputColor mb-0-5 mb-0-3">Email</p>
         <input
           required
-          id="mail"
+          ref="mailInput"
           type="mail"
           v-model="userArray[2]"
           placeholder="Enter a e-mail (abc@xyz.com)"
         />
-        <p id="mailAlert" class="display-none" style="color:red" > asdgasd  </p>
+        <p ref="mailAlert" class="display-none" style="color:red" > asdgasd  </p>
       </div>
 
       <div class="d-flex mt-1 mr-1 justify-content-end">
@@ -77,20 +76,20 @@ const message = ref("");
 const result = ref(false);
 const userArray = ref(["", "TESODEV", "", "08/05/2021", "", ""]);
 const store = useStore();
+const nameAlert=ref(null)
+const nameInput= ref(null)
+const cityAlert=ref(null)
+const cityInput=ref(null)
+const countryAlert=ref(null)
+const countryInput=ref(null)
+const mailAlert=ref(null)
+const mailInput=ref(null)
 import tsAlert from "../helperComponents/tsAlert.vue";
 const activeButton = computed(() => {
   if(userArray.value[0].length>1 && userArray.value[2].length>=1 && userArray.value[4].length>=1 && userArray.value[5].length>1) return false 
   else return true
 })
 const clearAlert = () => {
-   let nameAlert = ref(document.getElementById("nameAlert"));
- let cityAlert = ref(document.getElementById("cityAlert"));
- let countryAlert = ref(document.getElementById("countryAlert"));
- let nameInput = ref(document.getElementById("name"));
- let cityInput = ref(document.getElementById("city"));
- let countryInput = ref(document.getElementById("country"));
- let mailAlert = ref(document.getElementById("mailAlert"));
- let mailInput = ref(document.getElementById("mail"))
     nameAlert.value.classList.remove("d-flex")
     nameInput.value.classList.remove("borderAlert")
     cityAlert.value.classList.remove("d-flex")
@@ -101,15 +100,7 @@ const clearAlert = () => {
     mailInput.value.classList.remove("borderAlert")
 }
 const addUser = () => {
- let nameAlert = ref(document.getElementById("nameAlert"));
- let cityAlert = ref(document.getElementById("cityAlert"));
- let countryAlert = ref(document.getElementById("countryAlert"));
- let nameInput = ref(document.getElementById("name"));
- let cityInput = ref(document.getElementById("city"));
- let countryInput = ref(document.getElementById("country"));
- 
- // let mailAlert = ref(document.getElementById("mailAlert"));
-clearAlert()
+  clearAlert()
   if (userArray.value[0].length < 4) {
     console.log("Ad 4 haneden küçük olamaz.");
     isAlertActive.value = true;

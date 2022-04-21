@@ -8,7 +8,7 @@
           src="https://www.tesodev.com/getimg/5d4c76e7de632812d86a5bf2/194"
         />
       </div>
-      <div class="d-flex align-items-center col-7">
+      <div class="d-flex align-items-center ">
         <div style="margin-left: 6 rem">
           <input v-model="searchKey" placeholder="Search username" />
         </div>
@@ -23,10 +23,10 @@
       <div class="dropdown">
         <button @click="dropdown = !dropdown" class="dropbtn">Order By</button>
         <div v-if="dropdown" class="dropdown-content">
-          <a id="nameAscend" @click="nameAscending">Name ascending </a>
-          <a id="nameDescend" @click="nameDescending">Name descending</a>
-          <a id="yearAscend" @click="yearAscending">Year ascending</a>
-          <a id="yearDescend" @click="yearDescending">Year descending</a>
+          <a ref="nameAscend"  @click="nameAscending">Name ascending </a>
+          <a ref="nameDescend"  @click="nameDescending">Name descending</a>
+          <a ref="yearAscend" @click="yearAscending">Year ascending</a>
+          <a ref="yearDescend" @click="yearDescending">Year descending</a>
         </div>
       </div>
     </div>
@@ -136,6 +136,10 @@ const addDataScreen = inject("addDataScreen");
 const searchKey = inject("searchKey");
 const searchDatas = ref([]);
 const searchingData = ref([]);
+const nameAscend = ref(null)
+const nameDescend = ref(null)
+const yearAscend = ref(null)
+const yearDescend = ref(null)
 watch(searchKey, () => {
   if (searchKey.value.length >= 2) {
     searchDatas.value = [];
@@ -192,14 +196,10 @@ const nextPage = () => {
 const nameAscending = () => {
   searchingData.value = searchData.value.sort();
   searchSixerFilter();
-  let elementNameAscend = ref(document.getElementById("nameAscend"));
-  let elementNameDescend = ref(document.getElementById("nameDescend"));
-  let elementYearAscend = ref(document.getElementById("yearAscend"));
-  let elemenetYearDescend = ref(document.getElementById("yearDescend"));
-  elementNameAscend.value.classList.add("dropdown-content-a-active");
-  elementNameDescend.value.classList.remove("dropdown-content-a-active");
-  elementYearAscend.value.classList.remove("dropdown-content-a-active");
-  elemenetYearDescend.value.classList.remove("dropdown-content-a-active");
+  nameAscend.value.classList.add("dropdown-content-a-active")
+  nameDescend.value.classList.remove("dropdown-content-a-active");
+  yearAscend.value.classList.remove("dropdown-content-a-active");
+  yearDescend.value.classList.remove("dropdown-content-a-active");
 };
 const nameDescending = () => {
   searchingData.value = searchData.value.sort(function (a, b) {
@@ -212,14 +212,10 @@ const nameDescending = () => {
     return 0;
   });
   searchSixerFilter();
-  let elementNameDescend = ref(document.getElementById("nameDescend"));
-  let elementNameAscend = ref(document.getElementById("nameAscend"));
-  let elementYearAscend = ref(document.getElementById("yearAscend"));
-  let elemenetYearDescend = ref(document.getElementById("yearDescend"));
-  elementNameDescend.value.classList.add("dropdown-content-a-active");
-  elementNameAscend.value.classList.remove("dropdown-content-a-active");
-  elementYearAscend.value.classList.remove("dropdown-content-a-active");
-  elemenetYearDescend.value.classList.remove("dropdown-content-a-active");
+  nameDescend.value.classList.add("dropdown-content-a-active");
+  nameAscend.value.classList.remove("dropdown-content-a-active");
+  yearAscend.value.classList.remove("dropdown-content-a-active");
+  yearDescend.value.classList.remove("dropdown-content-a-active");
 };
 const dateFormat = (i) => {
   let d = i[3].split("/");
@@ -232,14 +228,10 @@ const yearAscending = () => {
       new Date(dateFormat(b)).getTime() - new Date(dateFormat(a)).getTime()
   );
   searchSixerFilter();
-  let elementNameDescend = ref(document.getElementById("nameDescend"));
-  let elementNameAscend = ref(document.getElementById("nameAscend"));
-  let elementYearAscend = ref(document.getElementById("yearAscend"));
-  let elemenetYearDescend = ref(document.getElementById("yearDescend"));
-  elementNameDescend.value.classList.remove("dropdown-content-a-active");
-  elementNameAscend.value.classList.remove("dropdown-content-a-active");
-  elementYearAscend.value.classList.add("dropdown-content-a-active");
-  elemenetYearDescend.value.classList.remove("dropdown-content-a-active");
+  nameDescend.value.classList.remove("dropdown-content-a-active");
+  nameAscend.value.classList.remove("dropdown-content-a-active");
+  yearAscend.value.classList.add("dropdown-content-a-active");
+  yearDescend.value.classList.remove("dropdown-content-a-active");
 };
 const yearDescending = () => {
   searchingData.value = searchData.value.sort(
@@ -247,14 +239,10 @@ const yearDescending = () => {
       new Date(dateFormat(a)).getTime() - new Date(dateFormat(b)).getTime()
   );
   searchSixerFilter();
-  let elementNameDescend = ref(document.getElementById("nameDescend"));
-  let elementNameAscend = ref(document.getElementById("nameAscend"));
-  let elementYearAscend = ref(document.getElementById("yearAscend"));
-  let elemenetYearDescend = ref(document.getElementById("yearDescend"));
-  elementNameDescend.value.classList.remove("dropdown-content-a-active");
-  elementNameAscend.value.classList.remove("dropdown-content-a-active");
-  elementYearAscend.value.classList.remove("dropdown-content-a-active");
-  elemenetYearDescend.value.classList.add("dropdown-content-a-active");
+  nameDescend.value.classList.remove("dropdown-content-a-active");
+  nameAscend.value.classList.remove("dropdown-content-a-active");
+  yearAscend.value.classList.remove("dropdown-content-a-active");
+  yearDescend.value.classList.add("dropdown-content-a-active");
 };
 
 onMounted(() => {

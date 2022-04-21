@@ -6,7 +6,7 @@
         <box-icon name="chevron-left"></box-icon>
       </button>
     </div>
-    <div id="container" class="d-flex cards justify-content-space-between news">
+    <div ref="container" class="d-flex cards justify-content-space-between news">
       <div class="d-flex">
         <div class="newsCard" v-for="i in 5" :key="i">
           <div><img height="300" src="@/assets/images/footerImage.png" /></div>
@@ -22,11 +22,13 @@
   </div>
 </template>
 <script setup>
+import {ref} from "vue"
+const container = ref(null)
 const nextPage = () => {
-  document.getElementById("container").scrollLeft += 537;
+  container.value.scrollLeft += 537;
 };
 const prevPage = () => {
-  document.getElementById("container").scrollLeft -= 537;
+  container.value.scrollLeft -= 537;
 };
 </script>
 <style scoped>
