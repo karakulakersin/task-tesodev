@@ -4,7 +4,7 @@
       class="d-flex justify-content-space-between align-items-center m-2 p-l-1"
     >
       <div>
-        <imghttps://github.com/karakulakersin/task-tesodev/blob/main/src/components/mainPage/mainSearchMore.vue
+        <img
           src="https://www.tesodev.com/getimg/5d4c76e7de632812d86a5bf2/194"
         />
       </div>
